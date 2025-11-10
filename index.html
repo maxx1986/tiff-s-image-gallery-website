@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity Photo Gallery - Premium Collection</title>
+    <meta name="description" content="Explore exclusive high-quality photos from your favorite TV shows including Chicago Fire, Chicago PD, Supernatural, and more. Browse by cast, episodes, events, and behind-the-scenes moments.">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="gallery-layout.css">
+    <link rel="stylesheet" href="components.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation (from main layout) -->
+    <nav class="main-navigation">
+        <div class="nav-container">
+            <div class="logo-section">
+                <a href="#" class="logo">
+                    <i class="fas fa-camera-retro"></i>
+                    Celebrity Gallery Pro
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#gallery" class="nav-link dropdown-toggle">
+                        <i class="fas fa-images"></i> Gallery
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <h4 class="dropdown-section-title">
+                                <i class="fas fa-tv"></i> By TV Show
+                            </h4>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-item" onclick="filterGallery('show', 'chicago-fire')">
+                                    <i class="fas fa-fire"></i> Chicago Fire
+                                    <span class="item-count">245 photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('show', 'chicago-pd')">
+                                    <i class="fas fa-shield-alt"></i> Chicago PD
+                                    <span class="item-count">198 photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('show', 'supernatural')">
+                                    <i class="fas fa-ghost"></i> Supernatural
+                                    <span class="item-count">387 photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('show', 'tracker')">
+                                    <i class="fas fa-search-location"></i> Tracker
+                                    <span class="item-count">89 photos</span>
+                                </li>
+                            </ul>
+
+                            <h4 class="dropdown-section-title">
+                                <i class="fas fa-users"></i> By Cast Type
+                            </h4>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-item" onclick="filterGallery('gender', 'male')">
+                                    <i class="fas fa-male"></i> Male Actors
+                                    <span class="item-count">45+ actors</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('gender', 'female')">
+                                    <i class="fas fa-female"></i> Female Actresses
+                                    <span class="item-count">38+ actresses</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('role', 'main')">
+                                    <i class="fas fa-star"></i> Main Cast
+                                    <span class="item-count">512 photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('role', 'recurring')">
+                                    <i class="fas fa-redo"></i> Recurring Cast
+                                    <span class="item-count">234 photos</span>
+                                </li>
+                            </ul>
+
+                            <h4 class="dropdown-section-title">
+                                <i class="fas fa-camera"></i> Photo Types
+                            </h4>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-item" onclick="filterGallery('type', 'episodes')">
+                                    <i class="fas fa-clapper-board"></i> Episode Stills
+                                    <span class="item-count">500+ photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('type', 'behind-scenes')">
+                                    <i class="fas fa-video"></i> Behind the Scenes
+                                    <span class="item-count">300+ photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('type', 'events')">
+                                    <i class="fas fa-star"></i> Red Carpet Events
+                                    <span class="item-count">200+ photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('type', 'conventions')">
+                                    <i class="fas fa-users"></i> Fan Conventions
+                                    <span class="item-count">150+ photos</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a href="#categories" class="nav-link dropdown-toggle">
+                        <i class="fas fa-th-large"></i> Categories
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                            <h4 class="dropdown-section-title">
+                                <i class="fas fa-tv"></i> TV Shows
+                            </h4>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-item" onclick="scrollToSection('chicago-franchise')">
+                                    <i class="fas fa-building"></i> Chicago Franchise
+                                    <span class="item-badge">Fire • PD • Med</span>
+                                </li>
+                                <li class="dropdown-item" onclick="scrollToSection('supernatural-universe')">
+                                    <i class="fas fa-magic"></i> Supernatural Universe
+                                    <span class="item-badge">15 Seasons</span>
+                                </li>
+                                <li class="dropdown-item" onclick="scrollToSection('tracker-series')">
+                                    <i class="fas fa-search"></i> Tracker Series
+                                    <span class="item-badge">2024 Hit</span>
+                                </li>
+                                <li class="dropdown-item" onclick="scrollToSection('crime-drama')">
+                                    <i class="fas fa-gavel"></i> Crime & Drama
+                                    <span class="item-badge">Police • Legal</span>
+                                </li>
+                            </ul>
+
+                            <h4 class="dropdown-section-title">
+                                <i class="fas fa-users"></i> Cast Categories
+                            </h4>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-item" onclick="filterGallery('role', 'main')">
+                                    <i class="fas fa-star"></i> Main Cast Leads
+                                    <span class="item-count">85+ actors</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('role', 'guest')">
+                                    <i class="fas fa-star-half-alt"></i> Guest Stars
+                                    <span class="item-count">120+ appearances</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('gender', 'male')">
+                                    <i class="fas fa-male"></i> Male Actors
+                                    <span class="item-count">45+ profiles</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('gender', 'female')">
+                                    <i class="fas fa-female"></i> Female Actresses
+                                    <span class="item-count">38+ profiles</span>
+                                </li>
+                            </ul>
+
+                            <h4 class="dropdown-section-title">
+                                <i class="fas fa-images"></i> Content Types
+                            </h4>
+                            <ul class="dropdown-list">
+                                <li class="dropdown-item" onclick="filterGallery('type', 'episodes')">
+                                    <i class="fas fa-play-circle"></i> Episode Photos
+                                    <span class="item-count">800+ stills</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('type', 'events')">
+                                    <i class="fas fa-trophy"></i> Awards & Events
+                                    <span class="item-count">250+ photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="filterGallery('type', 'behind-scenes')">
+                                    <i class="fas fa-camera"></i> Behind the Scenes
+                                    <span class="item-count">400+ photos</span>
+                                </li>
+                                <li class="dropdown-item" onclick="scrollToSection('special-collections')">
+                                    <i class="fas fa-gift"></i> Special Collections
+                                    <span class="item-count">150+ photos</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+                
+                <li class="nav-item cta">
+                    <a href="#" class="nav-link cta-button" onclick="openSignInModal()">
+                        <i class="fas fa-sign-in-alt"></i> Sign In
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Premium Celebrity Photo Gallery</h1>
+                    <p class="hero-subtitle">Discover exclusive, high-resolution photos from your favorite TV shows. Explore behind-the-scenes moments, red carpet appearances, and candid shots featuring the stars of Chicago Fire, Chicago PD, Supernatural, and more.</p>
+                    <div class="hero-actions">
+                        <a href="#gallery" class="hero-button primary">
+                            <i class="fas fa-images"></i>
+                            Browse Gallery
+                        </a>
+                        <a href="#categories" class="hero-button secondary">
+                            <i class="fas fa-th-large"></i>
+                            Explore Categories
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="container">
+                <!-- Gallery Header -->
+                <div class="gallery-header">
+                    <h1 class="gallery-title">
+                        <i class="fas fa-images"></i>
+                        Complete Photo Gallery
+                    </h1>
+                    <p class="gallery-subtitle">
+                        Browse our collection of <span id="total-photos-count">1,500+</span> high-quality celebrity photos 
+                        organized by show, cast member, episode, and event type
+                    </p>
+                </div>
+
+                <!-- Search and Quick Filters -->
+                <div class="gallery-search-filters">
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input type="text" id="gallery-search" class="search-input" placeholder="Search photos, actors, shows...">
+                            <button class="search-button" onclick="performSearch()">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div class="search-suggestions" id="search-suggestions">
+                                <!-- Dynamic suggestions will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-filters">
+                        <button class="quick-filter-btn" onclick="filterGallery('show', 'all')">
+                            <i class="fas fa-th"></i> All Photos
+                        </button>
+                        <button class="quick-filter-btn active" onclick="filterGallery('show', 'chicago-fire')">
+                            <i class="fas fa-fire"></i> Chicago Fire
+                        </button>
+                        <button class="quick-filter-btn" onclick="filterGallery('show', 'chicago-pd')">
+                            <i class="fas fa-shield-alt"></i> Chicago PD
+                        </button>
+                        <button class="quick-filter-btn" onclick="filterGallery('show', 'supernatural')">
+                            <i class="fas fa-ghost"></i> Supernatural
+                        </button>
+                        <button class="quick-filter-btn" onclick="sortBy('recent')">
+                            <i class="fas fa-clock"></i> Latest
+                        </button>
+                        <button class="quick-filter-btn" onclick="sortBy('popular')">
+                            <i class="fas fa-heart"></i> Popular
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Advanced Filters -->
+                <div class="filters-container" id="advanced-filters">
+                    <div class="filters-header">
+                        <h2 class="filters-title">
+                            <i class="fas fa-filter"></i>
+                            Advanced Filters
+                            <span class="filters-count" id="active-filters-count">0 active</span>
+                        </h2>
+                        <div class="filters-actions">
+                            <button class="clear-filters-btn" onclick="clearAllFilters()">
+                                <i class="fas fa-times"></i>
+                                Clear All
+                            </button>
+                            <button class="filter-toggle" onclick="toggleAdvancedFilters()">
+                                <i class="fas fa-chevron-down" id="filter-toggle-icon"></i>
+                                Advanced Options
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="filter-rows">
+                        <!-- Show Filter -->
+                        <div class="filter-row">
+                            <div class="filter-row-title">
+                                <i class="fas fa-tv"></i>
+                                TV Show
+                            </div>
+                            <div class="filter-group">
+                                <div class="filter-option active" data-filter="show" data-value="all" onclick="applyFilter(this)">
+                                    <i class="fas fa-th"></i>
+                                    All Shows
+                                </div>
+                                <div class="filter-option" data-filter="show" data-value="chicago-fire" onclick="applyFilter(this)">
+                                    <i class="fas fa-fire"></i>
+                                    Chicago Fire
+                                </div>
+                                <div class="filter-option" data-filter="show" data-value="chicago-pd" onclick="applyFilter(this)">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Chicago PD
+                                </div>
+                                <div class="filter-option" data-filter="show" data-value="supernatural" onclick="applyFilter(this)">
+                                    <i class="fas fa-ghost"></i>
+                                    Supernatural
+                                </div>
+                                <div class="filter-option" data-filter="show" data-value="tracker" onclick="applyFilter(this)">
+                                    <i class="fas fa-search-location"></i>
+                                    Tracker
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cast Gender Filter -->
+                        <div class="filter-row">
+                            <div class="filter-row-title">
+                                <i class="fas fa-users"></i>
+                                Cast Gender
+                            </div>
+                            <div class="filter-group">
+                                <div class="filter-option active" data-filter="gender" data-value="all" onclick="applyFilter(this)">
+                                    <i class="fas fa-users"></i>
+                                    All Cast
+                                </div>
+                                <div class="filter-option" data-filter="gender" data-value="male" onclick="applyFilter(this)">
+                                    <i class="fas fa-male"></i>
+                                    Male Actors
+                                </div>
+                                <div class="filter-option" data-filter="gender" data-value="female" onclick="applyFilter(this)">
+                                    <i class="fas fa-female"></i>
+                                    Female Actresses
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Role Type Filter -->
+                        <div class="filter-row">
+                            <div class="filter-row-title">
+                                <i class="fas fa-star"></i>
+                                Role Type
+                            </div>
+                            <div class="filter-group">
+                                <div class="filter-option active" data-filter="role" data-value="all" onclick="applyFilter(this)">
+                                    <i class="fas fa-star"></i>
+                                    All Roles
+                                </div>
+                                <div class="filter-option" data-filter="role" data-value="main" onclick="applyFilter(this)">
+                                    <i class="fas fa-crown"></i>
+                                    Main Cast
+                                </div>
+                                <div class="filter-option" data-filter="role" data-value="recurring" onclick="applyFilter(this)">
+                                    <i class="fas fa-redo"></i>
+                                    Recurring
+                                </div>
+                                <div class="filter-option" data-filter="role" data-value="guest" onclick="applyFilter(this)">
+                                    <i class="fas fa-star-half-alt"></i>
+                                    Guest Stars
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Photo Type Filter -->
+                        <div class="filter-row">
+                            <div class="filter-row-title">
+                                <i class="fas fa-camera"></i>
+                                Photo Type
+                            </div>
+                            <div class="filter-group">
+                                <div class="filter-option active" data-filter="photo-type" data-value="all" onclick="applyFilter(this)">
+                                    <i class="fas fa-images"></i>
+                                    All Types
+                                </div>
+                                <div class="filter-option" data-filter="photo-type" data-value="episodes" onclick="applyFilter(this)">
+                                    <i class="fas fa-clapper-board"></i>
+                                    Episode Stills
+                                </div>
+                                <div class="filter-option" data-filter="photo-type" data-value="behind-scenes" onclick="applyFilter(this)">
+                                    <i class="fas fa-video"></i>
+                                    Behind Scenes
+                                </div>
+                                <div class="filter-option" data-filter="photo-type" data-value="events" onclick="applyFilter(this)">
+                                    <i class="fas fa-trophy"></i>
+                                    Events
+                                </div>
+                                <div class="filter-option" data-filter="photo-type" data-value="conventions" onclick="applyFilter(this)">
+                                    <i class="fas fa-users"></i>
+                                    Conventions
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sort Options -->
+                        <div class="filter-row">
+                            <div class="filter-row-title">
+                                <i class="fas fa-sort"></i>
+                                Sort By
+                            </div>
+                            <div class="filter-group">
+                                <div class="filter-option active" data-filter="sort" data-value="recent" onclick="applyFilter(this)">
+                                    <i class="fas fa-clock"></i>
+                                    Most Recent
+                                </div>
+                                <div class="filter-option" data-filter="sort" data-value="popular" onclick="applyFilter(this)">
+                                    <i class="fas fa-heart"></i>
+                                    Most Popular
+                                </div>
+                                <div class="filter-option" data-filter="sort" data-value="views" onclick="applyFilter(this)">
+                                    <i class="fas fa-eye"></i>
+                                    Most Viewed
+                                </div>
+                                <div class="filter-option" data-filter="sort" data-value="likes" onclick="applyFilter(this)">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    Most Liked
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Apply Filters Button -->
+                    <div class="filters-footer">
+                        <button class="apply-filters-btn" onclick="applyAllFilters()">
+                            <i class="fas fa-magic"></i>
+                            Apply All Filters
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Categories Sidebar -->
+                <div class="categories-sidebar">
+                    <div class="sidebar-header">
+                        <h3 class="sidebar-title">
+                            <i class="fas fa-th-list"></i>
+                            Browse Categories
+                        </h3>
+                        <p class="sidebar-subtitle">
+                            Navigate through our organized collections
+                        </p>
+                    </div>
+
+                    <!-- Show Categories -->
+                    <div class="category-section">
+                        <h4 class="category-section-title" onclick="toggleCategory(this)">
+                            <i class="fas fa-tv"></i>
+                            TV Shows
+                            <i class="fas fa-chevron-down section-toggle"></i>
+                        </h4>
+                        <ul class="category-list">
+                            <li class="category-item" onclick="filterGallery('show', 'chicago-fire')">
+                                <div class="category-item-content">
+                                    <i class="fas fa-fire category-item-icon"></i>
+                                    <div class="category-item-text">
+                                        <span class="category-item-title">Chicago Fire</span>
+                                        <span class="category-item-subtitle">Firehouse 51 - 12 Seasons</span>
+                                    </div>
+                                </div>
+                                <span class="category-item-count">245 photos</span>
+                            </li>
+                            <li class="category-item" onclick="filterGallery('show', 'chicago-pd')">
+                                <div class="category-item-content">
+                                    <i class="fas fa-shield-alt category-item-icon"></i>
+                                    <div class="category-item-text">
+                                        <span class="category-item-title">Chicago PD</span>
+                                        <span class="category-item-subtitle">Intelligence Unit - 11 Seasons</span>
+                                    </div>
+                                </div>
+                                <span class="category-item-count">198 photos</span>
+                            </li>
+                            <li class="category-item" onclick="filterGallery('show', 'supernatural')">
+                                <div class="category-item-content">
+                                    <i class="fas fa-ghost category-item-icon"></i>
+                                    <div class="category-item-text">
+                                        <span class="category-item-title">Supernatural</span>
+                                        <span class="category-item-subtitle">Winchester Brothers - 15 Seasons</span>
+                                    </div>
+                                </div>
+                                <span class="category-item-count">387 photos</span>
+                            </li>
+                            <li class="category-item" onclick="filterGallery('show', 'tracker')">
+                                <div class="category-item-content">
+                                    <i class="fas fa-search-location category-item-icon"></i>
+                                    <div class="category-item-text">
+                                        <span class="category-item-title">Tracker</span>
+                                        <span class="category-item-subtitle">Colter Shaw - New Series</span>
+                                    </div>
+                                </div>
+                                <span class="category-item-count">89 photos</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cast Categories -->
+                    <div class="category-section">
+                        <h4 class="category-section-title" onclick="toggleCategory(this)">
+                            <i class="fas fa-users"></i>
+                            Cast Categories
+                            <i class="fas fa-chevron-down section-toggle"></i>
+                        </h4>
+                        <ul class="category-list">
+                            <li class="category-item" onclick="filterGallery('role', 'main')">
+                                <div class="category-item-content">
+                                    <i class="fas fa-star category-item-icon"></i>
+                                    <div class="category-item-text">
+                                        <span class
