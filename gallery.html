@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Celebrity Photos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <!-- Navigation content will be added via JavaScript -->
+    </nav>
+
+    <main class="gallery-container">
+        <header class="gallery-header">
+            <h1>Celebrity Photo Gallery</h1>
+            <div class="gallery-tabs">
+                <a href="gallery.html" class="active">Celebrity Photos</a>
+                <a href="portfolio.html">My Portfolio</a>
+            </div>
+        </header>
+
+        <section class="category-filters">
+            <h2>Categories</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="chicago-fire">Chicago Fire</button>
+                <button class="filter-btn" data-category="chicago-pd">Chicago PD</button>
+                <button class="filter-btn" data-category="supernatural">Supernatural</button>
+                <button class="filter-btn" data-category="tracker">Tracker</button>
+            </div>
+        </section>
+
+        <section class="gallery-grid" id="celebrity-gallery">
+            <!-- Gallery items will be populated by JavaScript -->
+        </section>
+
+        <div class="pagination">
+            <button class="prev-page">Previous</button>
+            <div class="page-numbers">
+                <span class="current-page">1</span> / <span class="total-pages">1</span>
+            </div>
+            <button class="next-page">Next</button>
+        </div>
+    </main>
+
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/gallery.js"></script>
+</body>
+</html>

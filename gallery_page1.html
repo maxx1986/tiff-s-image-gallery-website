@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrity Photo Gallery</title>
+    <meta name="description" content="Explore our collection of celebrity photographs from Chicago Fire, Chicago PD, Supernatural, and more">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+    <link rel="stylesheet" href="styles/gallery-loading.css">
+    <link rel="stylesheet" href="styles/gallery-controls.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <a class="nav-brand" href="index.html">Home</a>
+                    <button class="hamburger" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle menu">
+                        <span class="icon">☰</span>
+                    </button>
+                    <ul id="main-menu" class="menu" role="menubar" aria-label="Categories">
+                    <li role="none"><a role="menuitem" href="gallery page1.html">Gallery</a></li>
+                    <li class="dropdown" role="none">
+                        <a role="menuitem" href="ai-chat/">AI Chat</a>
+                        <ul class="submenu" role="menu" aria-label="AI Chat submenu">
+                            <li role="none"><a role="menuitem" href="ai-chat/chat.html">Start Chat</a></li>
+                            <li role="none"><a role="menuitem" href="ai-chat/browse.html">Browse Chats</a></li>
+                            <li role="none"><a role="menuitem" href="ai-chat/templates.html">Templates</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" role="none">
+                        <a role="menuitem" href="fanfiction/">Fanfiction</a>
+                        <ul class="submenu" role="menu" aria-label="Fanfiction submenu">
+                            <li role="none"><a role="menuitem" href="fanfiction/browse.html">Browse Stories</a></li>
+                            <li role="none"><a role="menuitem" href="fanfiction/popular.html">Popular</a></li>
+                            <li role="none"><a role="menuitem" href="fanfiction/write.html">Write Story</a></li>
+                            <li class="has-sub" role="none">
+                                <a role="menuitem" href="#">Categories</a>
+                                <ul class="subsubmenu" role="menu" aria-label="Story Categories">
+                                    <li role="none"><a role="menuitem" href="fanfiction/categories/chicago-fire.html">Chicago Fire</a></li>
+                                    <li role="none"><a role="menuitem" href="fanfiction/categories/chicago-pd.html">Chicago PD</a></li>
+                                    <li role="none"><a role="menuitem" href="fanfiction/categories/supernatural.html">Supernatural</a></li>
+                                    <li role="none"><a role="menuitem" href="fanfiction/categories/tracker.html">Tracker</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" role="none">
+                        <a role="menuitem" href="#">Celebrities</a>
+                        <ul class="submenu" role="menu" aria-label="Celebrities submenu">
+                            <li class="has-sub" role="none">
+                                <a role="menuitem" href="#">Chicago</a>
+                                <ul class="subsubmenu" role="menu" aria-label="Chicago series">
+                                    <li class="has-sub" role="none">
+                                        <a role="menuitem" href="shows/chicago-fire.html">Chicago Fire</a>
+                                        <ul class="subsubmenu" role="menu" aria-label="Chicago Fire menu">
+                                            <li class="has-sub" role="none">
+                                                <a role="menuitem" href="people/male-celebrities.html">Male Cast</a>
+                                                <ul class="subsubmenu" role="menu" aria-label="Chicago Fire male cast">
+                                                    <li role="none"><a role="menuitem" href="people/tyler-kinney.html">Taylor Kinney</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/david-eigenberg.html">David Eigenberg</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/joe-minoso.html">Joe Minoso</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-sub" role="none">
+                                                <a role="menuitem" href="people/female-celebrities.html">Female Cast</a>
+                                                <ul class="subsubmenu" role="menu" aria-label="Chicago Fire female cast">
+                                                    <li role="none"><a role="menuitem" href="people/monica-raymund.html">Monica Raymund</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/kara-killmer.html">Kara Killmer</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/miranda-mayo.html">Miranda Mayo</a></li>
+                                                </ul>
+                                            </li>
+                                            <li role="none"><a role="menuitem" href="shows/chicago-fire-episodes.html">Episodes</a></li>
+                                            <li role="none"><a role="menuitem" href="shows/chicago-fire-gallery.html">Gallery</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub" role="none">
+                                        <a role="menuitem" href="shows/chicago-pd.html">Chicago PD</a>
+                                        <ul class="subsubmenu" role="menu" aria-label="Chicago PD menu">
+                                            <li class="has-sub" role="none">
+                                                <a role="menuitem" href="people/male-celebrities.html">Male Cast</a>
+                                                <ul class="subsubmenu" role="menu" aria-label="Chicago PD male cast">
+                                                    <li role="none"><a role="menuitem" href="people/jesse-lee-soffer.html">Jesse Lee Soffer</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/patrick-flueger.html">Patrick Flueger</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/laroyce-hawkins.html">LaRoyce Hawkins</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-sub" role="none">
+                                                <a role="menuitem" href="people/female-celebrities.html">Female Cast</a>
+                                                <ul class="subsubmenu" role="menu" aria-label="Chicago PD female cast">
+                                                    <li role="none"><a role="menuitem" href="people/marina-squerciati.html">Marina Squerciati</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/tracy-spiridakos.html">Tracy Spiridakos</a></li>
+                                                    <li role="none"><a role="menuitem" href="people/sophia-bush.html">Sophia Bush</a></li>
+                                                </ul>
+                                            </li>
+                                            <li role="none"><a role="menuitem" href="shows/chicago-pd-episodes.html">Episodes</a></li>
+                                            <li role="none"><a role="menuitem" href="shows/chicago-pd-gallery.html">Gallery</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-sub" role="none">
+                                <a role="menuitem" href="shows/supernatural.html">Supernatural</a>
+                                <ul class="subsubmenu" role="menu" aria-label="Supernatural cast">
+                                    <li class="has-sub" role="none">
+                                        <a role="menuitem" href="people/male-celebrities.html">Male Cast</a>
+                                        <ul class="subsubmenu" role="menu" aria-label="Supernatural male cast">
+                                            <li role="none"><a role="menuitem" href="people/jared-padalecki.html">Jared Padalecki</a></li>
+                                            <li role="none"><a role="menuitem" href="people/jensen-ackles.html">Jensen Ackles</a></li>
+                                            <li role="none"><a role="menuitem" href="people/misha-collins.html">Misha Collins</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub" role="none">
+                                        <a role="menuitem" href="people/female-celebrities.html">Female Cast</a>
+                                        <ul class="subsubmenu" role="menu" aria-label="Supernatural female cast">
+                                            <li role="none"><a role="menuitem" href="people/genevieve-padalecki.html">Genevieve Padalecki</a></li>
+                                            <li role="none"><a role="menuitem" href="people/kim-rhodes.html">Kim Rhodes</a></li>
+                                            <li role="none"><a role="menuitem" href="people/felicia-day.html">Felicia Day</a></li>
+                                        </ul>
+                                    </li>
+                                    <li role="none"><a role="menuitem" href="shows/supernatural-episodes.html">Episodes</a></li>
+                                    <li role="none"><a role="menuitem" href="shows/supernatural-gallery.html">Gallery</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub" role="none">
+                                <a role="menuitem" href="shows/tracker.html">Tracker</a>
+                                <ul class="subsubmenu" role="menu" aria-label="Tracker cast">
+                                    <li class="has-sub" role="none">
+                                        <a role="menuitem" href="people/male-celebrities.html">Male Cast</a>
+                                        <ul class="subsubmenu" role="menu" aria-label="Tracker male cast">
+                                            <li role="none"><a role="menuitem" href="people/justin-hartley.html">Justin Hartley</a></li>
+                                            <li role="none"><a role="menuitem" href="people/robin-weigert.html">Robin Weigert</a></li>
+                                        </ul>
+                                    </li>
+                                    <li role="none"><a role="menuitem" href="shows/tracker-episodes.html">Episodes</a></li>
+                                    <li role="none"><a role="menuitem" href="shows/tracker-gallery.html">Gallery</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-auth">
+                        <button class="signup-btn">Sign Up / Login</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Main content -->
+    <main class="gallery-container">
+        <header class="gallery-header animate-fade-in">
+            <h1>Celebrity Photo Gallery</h1>
+            <p>Explore our exclusive collection of celebrity photographs from your favorite TV shows</p>
+            
+            <div class="gallery-controls">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search celebrities, shows, or characters..." id="gallery-search">
+                        <button class="search-filter" aria-label="Show filters">
+                            <i class="fas fa-sliders-h"></i>
+                            Filters
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="view-controls">
+                    <div class="layout-switcher">
+                        <button class="layout-btn active" data-layout="grid" aria-label="Grid view">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="layout-btn" data-layout="masonry" aria-label="Masonry view">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="layout-btn" data-layout="list" aria-label="List view">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="sort-options">
+                        <select id="sort-select" aria-label="Sort gallery">
+                            <option value="name">Name</option>
+                            <option value="show">Show</option>
+                            <option value="recent">Most Recent</option>
+                            <option value="popular">Most Popular</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="advanced-filters" style="display: none;">
+                <div class="filter-group">
+                    <h3>Shows</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="chicago-pd"> Chicago PD</label>
+                        <label><input type="checkbox" value="chicago-fire"> Chicago Fire</label>
+                        <label><input type="checkbox" value="supernatural"> Supernatural</label>
+                        <label><input type="checkbox" value="tracker"> Tracker</label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Gender</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="male"> Male</label>
+                        <label><input type="checkbox" value="female"> Female</label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>Role</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="main-cast"> Main Cast</label>
+                        <label><input type="checkbox" value="recurring"> Recurring</label>
+                        <label><input type="checkbox" value="guest"> Guest Star</label>
+                    </div>
+                </div>
+                
+                <button class="apply-filters">Apply Filters</button>
+            </div>
+        </header>
+
+        <section class="category-filters animate-slide-in">
+            <h2>Browse by Show</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-border-all"></i>
+                    All Shows
+                </button>
+                <button class="filter-btn" data-category="chicago-pd">
+                    <i class="fas fa-shield-alt"></i>
+                    Chicago PD
+                </button>
+                <button class="filter-btn" data-category="chicago-fire">
+                    <i class="fas fa-fire"></i>
+                    Chicago Fire
+                </button>
+                <button class="filter-btn" data-category="supernatural">
+                    <i class="fas fa-ghost"></i>
+                    Supernatural
+                </button>
+                <button class="filter-btn" data-category="tracker">
+                    <i class="fas fa-search-location"></i>
+                    Tracker
+                </button>
+            </div>
+        </section>
+
+        <section class="gallery-stats animate-fade-in">
+            <div class="stat-item">
+                <i class="fas fa-camera"></i>
+                <span class="stat-value" id="total-photos">9</span>
+                <span class="stat-label">Photos</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-tv"></i>
+                <span class="stat-value">4</span>
+                <span class="stat-label">Shows</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span class="stat-value" id="total-celebrities">9</span>
+                <span class="stat-label">Celebrities</span>
+            </div>
+        </section>
+
+        <!-- Chicago PD Section -->
+        <section class="gallery-section" id="chicago-pd">
+            <h2>Chicago PD Cast</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-scale-in" data-category="chicago-pd">
+                    <div class="img-wrap">
+                        <a href="people/jesse-lee-soffer.html">
+                            <img src="../celebrities/chicago/chicago Pd/jesse lee soffer/Jesse Lee Soffer.jpg" 
+                                 alt="Jesse Lee Soffer - Detective Jay Halstead" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                            <div class="image-info-overlay">
+                                <h4>Jesse Lee Soffer</h4>
+                                <p>Detective Jay Halstead</p>
+                                <div class="image-tags">
+                                    <span class="image-tag">Chicago PD</span>
+                                    <span class="image-tag">Main Cast</span>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="favorite-btn" aria-label="Add to favorites">
+                            <i class="far fa-heart"></i>
+                        </button>
+                        <div class="image-count">
+                            <i class="fas fa-camera"></i>
+                            <span>12 photos</span>
+                        </div>
+                    </div>
+                    <div class="caption">
+                        <h3>Jesse Lee Soffer</h3>
+                        <p>Detective Jay Halstead</p>
+                        <div class="category-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            Chicago PD
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/marina-squerciati.html">
+                            <img src="../celebrities/chicago/chicago Pd/marina squerciati/Marina1.jpg" 
+                                 alt="Marina Squerciati - Officer Kim Burgess" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Marina Squerciati</h3>
+                        <p>Officer Kim Burgess</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/tracy-spiridakos.html">
+                            <img src="../celebrities/chicago/chicago Pd/tracy spiridakos/Tracy1.jpg" 
+                                 alt="Tracy Spiridakos - Detective Hailey Upton" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Tracy Spiridakos</h3>
+                        <p>Detective Hailey Upton</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-nav">
+                <a href="shows/chicago-pd-gallery.html" class="button">View Full Chicago PD Gallery →</a>
+            </div>
+        </section>
+
+        <!-- Chicago Fire Section -->
+        <section class="gallery-section" id="chicago-fire">
+            <h2>Chicago Fire Cast</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/tyler-kinney.html">
+                            <img src="../celebrities/chicago/chicago fire/tyler kinney/Taylor Kinney.jpg" 
+                                 alt="Taylor Kinney - Lieutenant Kelly Severide" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Taylor Kinney</h3>
+                        <p>Lieutenant Kelly Severide</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/monica-raymund.html">
+                            <img src="../celebrities/chicago/chicago fire/monica raymund/Monica1.jpg" 
+                                 alt="Monica Raymund - Gabriela Dawson" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Monica Raymund</h3>
+                        <p>Gabriela Dawson</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/kara-killmer.html">
+                            <img src="../celebrities/chicago/chicago fire/kara killmer/Kara1.jpg" 
+                                 alt="Kara Killmer - Sylvie Brett" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Kara Killmer</h3>
+                        <p>Sylvie Brett</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supernatural Section -->
+        <section class="gallery-section" id="supernatural">
+            <h2>Supernatural Cast</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/jared-padalecki.html">
+                            <img src="../celebrities/supernatural/jared padalecki/Jared1.jpg" 
+                                 alt="Jared Padalecki - Sam Winchester" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Jared Padalecki</h3>
+                        <p>Sam Winchester</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/jensen-ackles.html">
+                            <img src="../celebrities/supernatural/jensen ackles/Jensen1.jpg" 
+                                 alt="Jensen Ackles - Dean Winchester" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Jensen Ackles</h3>
+                        <p>Dean Winchester</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="img-wrap">
+                        <a href="people/kim-rhodes.html">
+                            <img src="../celebrities/supernatural/kim rhodes/Kim1.jpg" 
+                                 alt="Kim Rhodes - Sheriff Jody Mills" 
+                                 onerror="this.parentElement.style.display='none'"
+                                 loading="lazy">
+                        </a>
+                    </div>
+                    <div class="caption">
+                        <h3>Kim Rhodes</h3>
+                        <p>Sheriff Jody Mills</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/gallery.js" defer></script>
+    <script src="scripts/loading-effects.js" defer></script>
+    <script src="scripts/gallery-controls.js" defer></script>
+    
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-navigation">
+                <button class="lightbox-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="lightbox-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption">
+                <h3></h3>
+                <p></p>
+                <div class="image-tags"></div>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="toast-container"></div>
+</body>
+</html>
