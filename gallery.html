@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Celebrity Photo Gallery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1>Celebrity Photo Gallery</h1>
+  </header>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container gallery-container" role="main">
+    <div class="gallery-header">
+      <h2>Celebrity Photos</h2>
+      <div class="gallery-tabs" role="tablist" aria-label="Gallery sections">
+        <a href="gallery.html" class="active" role="tab" aria-selected="true">Celebrity Photos</a>
+        <a href="portfolio.html" role="tab" aria-selected="false">My Portfolio</a>
+      </div>
+    </div>
+
+    <section class="category-filters" aria-labelledby="filters-heading">
+      <h3 id="filters-heading" class="section-title"><span></span><span>Categories</span></h3>
+      <div class="filter-buttons" role="toolbar" aria-label="Filter gallery by category">
+        <button class="filter-btn active" data-category="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-category="chicago-fire">Chicago Fire</button>
+        <button class="filter-btn" data-category="chicago-pd">Chicago PD</button>
+        <button class="filter-btn" data-category="supernatural">Supernatural</button>
+        <button class="filter-btn" data-category="tracker">Tracker</button>
+      </div>
+    </section>
+
+    <section id="celebrity-gallery" class="gallery-grid" aria-live="polite">
+      <!-- Gallery items are populated by scripts/gallery.js -->
+    </section>
+
+    <div class="pagination" aria-label="Gallery pagination">
+      <button class="prev-page" aria-label="Previous page">Previous</button>
+      <div class="page-numbers" aria-hidden="false">
+        <span class="current-page">1</span> / <span class="total-pages">1</span>
+      </div>
+      <button class="next-page" aria-label="Next page">Next</button>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="center">© <span id="year"></span> Celebrity Photo Gallery</div>
+  </footer>
+
+  <noscript class="center" aria-hidden="false">
+    JavaScript is required to load the gallery. Please enable JavaScript.
+  </noscript>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/gallery.js"></script>
+</body>
+</html>
